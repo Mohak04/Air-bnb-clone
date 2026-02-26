@@ -1,0 +1,154 @@
+.navbar{
+  background-color: white;
+  height:5rem;
+}
+
+.fa-compass{
+  color:#fe4244;
+  font-size:2rem;
+}
+
+.nav-link{
+  color:#222222 !important;
+}
+.nav-link:hover{
+  font-weight: 200;
+}
+
+.f-info-links a{
+  text-decoration: none;
+  color: #222222;
+}
+
+.f-info-links a:hover{
+  text-decoration: underline;
+}
+
+.f-info{
+  background-color: lightcoral;
+  height: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.f-info-socials i{
+  color:#222222;
+  font-size:1.2rem;
+  opacity:0.8;
+  margin-right: 0.5rem;
+}
+ 
+.f-info-socials i:hover{
+  opacity: 1;
+  font-size: 1.3rem;
+}
+
+.index-listing{
+  padding: 0px !important;
+  opacity: 0.9;
+  /* background-color: aliceblue; */
+}
+.index-listing:hover{
+  opacity:1;
+  box-shadow: 2px 2px 2px gainsboro;
+}
+
+.index-listing a{
+  text-decoration: none;
+  color: #222222;
+}
+
+/* .box{  //outermost div. used for grid styling using flex without bootstrap.
+  display: flex !important;
+  flex-wrap: wrap;
+  gap:15px;
+  
+} */
+
+/* .index{ //inner div
+  border: none!important;
+  margin-top: 1rem !important;
+}
+
+.index:hover{
+  opacity: 0.8;
+  background-color: aliceblue;
+} */
+
+.index-img{ /* use same with flex */
+  width: 100% !important;
+  height: 18rem !important;
+  border-radius: 15px;
+  object-fit: cover !important ;
+}
+
+body{
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  display:flex;           /*for footer to stick to the bottom */
+  flex-direction: column; /*for footer to stick to the bottom */
+  min-height: 100vh;      /*for footer to stick to the bottom */
+}
+
+.container{
+  flex:1;                 /*for footer to stick to the bottom */
+}
+
+.index-page{
+  padding: 0px 5px !important;
+}
+
+.box a{
+  text-decoration: none !important;
+  color:#222222;
+}
+
+.add-btn{
+  background-color: #fe4244 !important;
+  border: none !important;
+}
+
+.show img{
+  height:50vh;
+  border-radius: 15px;
+  object-fit: cover !important ;
+}
+
+.show{
+  border: none !important;
+}
+
+.show-page{
+  padding-left: 0px !important;
+  padding-top: 1px !important;
+}
+
+.show-edit{
+  margin-right: 1rem;
+}
+
+.btn-dlt{
+  border: none !important;
+}
+
+.review-card{
+  background-color:azure !important;
+}
+
+#map{
+  height:400px;
+  width: 80vh;
+  border-radius: 5px;
+}
+
+.index-toggle{
+  display: none;
+}
+
+.amine:hover{
+  
+}

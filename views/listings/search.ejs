@@ -1,0 +1,21 @@
+<% layout('layouts/boilerplate') %>
+ <div class="row row-cols-3 mt-1">
+            <% for(list of listings) { %>
+
+                <div class="card  col mb-3 me-2 index-listing" style="width: 20rem; ">
+                    <a class="anchor" href='/listings/<%=list.id%>'>
+                        <img src="<%=list.image.url%>" class="card-img-top index-img" alt="listing">
+                        <div class="card-body index-page">
+                            <p class="card-text">
+                                <b>
+                                    <%=list.title%>
+                                </b><br>
+                                &#8377; <%=list.price.toLocaleString("en-IN")%> /night
+                                <i class="index-toggle">&nbsp; +18% GST</i>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
+                <% } %>
+        </div>
