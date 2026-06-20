@@ -31,7 +31,7 @@ module.exports.loginPage=(req,res)=>{
 module.exports.login=async (req,res)=>{
     req.flash("success",`Welcome ${req.user.username} to wanderlust`);
     
-    let Url=res.locals.redirectUrl || '/listings'; // agr res.locals.redirectUrl empty hai toh '/listings' nhi to vohi.
+    let Url=res.locals.redirectUrl || '/listings'; 
     res.redirect(Url);
 };
 
