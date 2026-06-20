@@ -1,4 +1,4 @@
-require("dotenv").config({path:'../.env'}); //ye isliye likhna pada qki ye wali file hm bina app chalu kre run krne wale , .env file read krne wala apne app.js me likha h issiliye idhr run krna pdra
+require("dotenv").config({path:'../.env'}); 
 const mongoose=require('mongoose');
 const initData=require('./data.js');
 const Listing=require('../models/listing.js');
@@ -21,7 +21,6 @@ async function main(){
 
 const initDB=async()=>{
     await Listing.deleteMany({});
-    // initData.data = initData.data.map((obj)=>({...obj,owner:"6985ed7989dac99c2ee9250b"})); //owner add kiya sb me
 
     for(listing of initData.data){
         let res=await geocodingClient.forwardGeocode({
