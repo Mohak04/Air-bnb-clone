@@ -4,9 +4,8 @@ const {listingSchema,reviewSchema}=require('./schema.js');
 const ExpressError=require('./utils/ExpressError.js');
 
 module.exports.isLoggedin = (req,res,next)=>{
-    // console.log(req.path, "  ", req.originalUrl)
     if(!req.isAuthenticated()){
-        req.session.redirectUrl=req.originalUrl; //ye middleware konsi req se trigger hua uska path
+        req.session.redirectUrl=req.originalUrl; 
         console.log(req.session.redirectUrl);
         req.flash("error","User must be logged in");
         return res.redirect("/users/login");
@@ -24,8 +23,6 @@ module.exports.saveRedirectUrl=(req,res,next)=>{
 module.exports.isOwner=async(req,res,next)=>{
     let {id}=req.params;
     let listing=await Listing.findById(id);
-    // console.log(listing);
-    // console.log(listing.owner," ",res.locals.currUser);
     if(res.locals.currUser && !res.locals.currUser._id.equals(listing.owner)){
         req.flash("error","You don't have permission");
         return res.redirect(`/listings/${id}`);
