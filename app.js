@@ -1,5 +1,5 @@
 if(process.env.NODE_ENV!="production"){
-    require('dotenv').config();  //reads env, or ek br app chalu hogaya to fir baki files bhi .env access kr skti
+    require('dotenv').config(); 
 }
 
 const express=require("express");
@@ -7,7 +7,7 @@ const app=express();
 
 const ExpressError=require('./utils/ExpressError.js');
 
-const ejsMate=require('ejs-mate');  //like includes
+const ejsMate=require('ejs-mate');  
 app.engine("ejs",ejsMate);
 
 const methodOverride=require('method-override');
@@ -33,7 +33,7 @@ app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 
 app.use(express.static(path.join(__dirname,"public")));
-app.use(express.urlencoded({extended:true})); //This line tells Express to read data coming from HTML forms and convert it into req.body.
+app.use(express.urlencoded({extended:true})); 
 
 let dbUrl=process.env.ATLASDB_URL;
 
@@ -48,12 +48,6 @@ main()
 async function main(){
     await mongoose.connect(dbUrl);
 }
-
-
-// app.get('/',(req,res)=>{
-//     res.send("Working");
-// })
-
 
 const store= MongoStore.create({
     mongoUrl:dbUrl,
@@ -91,40 +85,18 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use((req,res,next)=>{
     res.locals.success=req.flash('success');
-    res.locals.error=req.flash('error');  //this make these variable available for all ejs files
+    res.locals.error=req.flash('error');  
     res.locals.currUser=req.user;
     next();
 })
-
-// app.get('/demouser',async (req,res)=>{
-//     let newUser=new User({
-//         email:"mohak@nimje",
-//         username:"mohak_nimje"
-//     })
-
-//     let registeredUser=await User.register(newUser,"helloworld");
-//     res.send(registeredUser);
-// })
-
 
 app.use('/listings',listingRouter);
 app.use('/listings/:id/reviews',reviewRouter);
 app.use('/users',userRouter);
 
-
-// if in case any routes not matched then
-
-// app.use((res,req)=>{
-//     throw new ExpressError(404,"Page not found");
-// })
-
-//or
-
-
 app.use((req,res,next)=>{
     next(new ExpressError(404,"Page not found"));
 });
-
 
 app.use((err,req,res,next)=>{
     let {status=500,message}=err;
