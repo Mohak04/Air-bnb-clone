@@ -27,20 +27,6 @@ module.exports.createListing = async (req, res) => {
     })
     .send();
 
-    // console.log(response.body.features[0].geometry);
-    
-
-    // let result=await axios.get(`https://api.mapbox.com/search/geocode/v6/forward?q=Pune&access_token=${process.env.MAP_TOKEN}`);
-    // console.log(result.data.features.geometry);
-    //or
-    // const result=await axios.get("https://api.mapbox.com/search/geocode/v6/forward",{
-    //     params:{
-    //         q:"Pune",
-    //         limit:1,
-    //         accessToken:mapToken,
-    //     }
-    // });
-
     newListing.geometry=response.body.features[0].geometry;
 
     let savedListing=await newListing.save();
@@ -60,7 +46,7 @@ module.exports.showListings = async (req, res) => {
             }
         })
         .populate('owner');
-    if (!listing) { //listing delete hone k bad vohi id wale route ko call kara to      
+    if (!listing) { 
         req.flash("error", "Listing does not exists!");
         return res.redirect('/listings');
     }
@@ -100,7 +86,7 @@ module.exports.editListing = async (req, res) => {
 };
 
 module.exports.deleteListing = async (req, res) => {
-    let { id } = req.params; //req.params.id
+    let { id } = req.params;
 
     let data = await Listing.findByIdAndDelete(id);
     req.flash("success", "Listing Deleted!");
