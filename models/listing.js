@@ -4,17 +4,12 @@ const Review = require('./review.js');
 
 const listingSchema = new Schema({
     title: {
-        type: String,
-        // required:true,
+        type: String
     },
     description: String,
     image: {
         url: String,
         filename: String,
-
-        // type:String,
-        // default:"https://hips.hearstapps.com/hmg-prod/images/nature-quotes-landscape-1648265648.jpg?crop=1xw:0.84375xh;center,top&resize=1200:*",  // if image is not specified.
-        // set:(v)=> v===""?"https://hips.hearstapps.com/hmg-prod/images/nature-quotes-landscape-1648265648.jpg?crop=1xw:0.84375xh;center,top&resize=1200:*":v, //ternary opr // if image is specified but empty ex: image :""
     },
     price: Number,
     location: String,
@@ -31,8 +26,8 @@ const listingSchema = new Schema({
     },
     geometry: {
         type: {
-            type: String, // Don't do `{ location: { type: String } }`
-            enum: ['Point'], // 'location.type' must be 'Point'
+            type: String, 
+            enum: ['Point'], 
             required: true
         },
         coordinates: {
