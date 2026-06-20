@@ -12,7 +12,7 @@ router.route('/login')
 .get(userController.loginPage)
 .post(saveRedirectUrl,passport.authenticate("local",   
      {failureRedirect: "/users/login",
-      failureFlash:true,}), //Passport always uses "error", you can’t change that key.
+      failureFlash:true,}),
       userController.login);
 
 router.get('/logout',userController.logout);
