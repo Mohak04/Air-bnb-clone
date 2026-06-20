@@ -1,14 +1,14 @@
 const Joi=require('joi');
 
 const listingSchema= Joi.object({ 
-    listing: Joi.object({ // mtlb joi me object hogi listing name ki jisme ye sb conditions satisfy honi chahiye.
+    listing: Joi.object({ 
         title: Joi.string().required(),
         description: Joi.string().required(),
         location: Joi.string().required(),
         country: Joi.string().required(),
         price: Joi.number().required(),
         image: Joi.string().allow("",null)
-    }).required(), // or lisitng object bhi compulsory chahiye hi.
+    }).required(), 
 });
 
 const reviewSchema=Joi.object({
